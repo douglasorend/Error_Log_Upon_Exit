@@ -1,5 +1,5 @@
 [hr]
-[center][color=red][size=16pt][b]ERROR LOG UPON EXIT v1.0[/b][/size][/color]
+[center][color=red][size=16pt][b]ERROR LOG UPON EXIT v1.1[/b][/size][/color]
 [url=http://www.simplemachines.org/community/index.php?action=profile;u=253913][b]By Dougiefresh[/b][/url] -> [url=http://custom.simplemachines.org/mods/index.php?mod=4097]Link to Mod[/url]
 [/center]
 [hr]
@@ -13,7 +13,7 @@ I did, so I wrote a mod consisting of several hooks to get the number of errors 
 There are no admin settings for this mod!
 
 [color=blue][b][size=12pt][u]Compatibility Notes[/u][/size][/b][/color]
-This mod was tested on SMF 2.0.11, but should work on SMF 2.0 and up.  SMF 1.x is not and will not be supported.  
+This mod was tested on SMF 2.0.11 and SMF 1.1.x, but should work on SMF 2.0 and up.  SMF 1.0.x is not supported.
 
 [color=blue][b][size=12pt][u]Changelog[/u][/size][/b][/color]
 The changelog has been removed and can be seen at [url=http://www.xptsp.com/board/index.php?topic=670.msg993#msg993]XPtsp.com[/url].

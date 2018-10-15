@@ -1,2 +1,5 @@
+v1.1 - September 14th, 2016
+o Added support for SMF 1.1.x.
+
 v1.0 - March 14th, 2016
 o Initial release to the public
