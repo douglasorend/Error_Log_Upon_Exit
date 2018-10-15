@@ -1,3 +1,6 @@
+v1.2 - November 26th, 2016
+o Added admin check to circumvent white screen error found.
+
 v1.1 - September 14th, 2016
 o Added support for SMF 1.1.x.
 

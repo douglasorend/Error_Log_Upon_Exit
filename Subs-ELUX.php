@@ -25,28 +25,33 @@ function ELUX_Menu(&$buttons)
 
 function ELUX_Buffer($buffer)
 {
-	global $context, $smcFunc, $forum_version, $db_prefix;
+	global $context, $smcFunc, $forum_version, $db_prefix, $user_info;
 	
-	// If we are admin, then show the number of errors in the log:
-	$ver = substr($forum_version, 0, 7);
-	if ($ver >= 'SMF 2.0' && !empty($context['user']['is_admin']))
+	// If we aren't admin, return the buffer the way it is:
+	if (!empty($user_info['admin']))
 	{
-		$result = $smcFunc['db_query']('', '
-			SELECT COUNT(id_error) AS errors
-			FROM {db_prefix}log_errors'
-		);
-		list($errors) = $smcFunc['db_fetch_row']($result);
-		$smcFunc['db_free_result']($result);
+		// If we are admin, then show the number of errors in the log:
+		$ver = substr($forum_version, 0, 7);
+		if ($ver >= 'SMF 2.0' && !empty($context['user']['is_admin']))
+		{
+			$result = $smcFunc['db_query']('', '
+				SELECT COUNT(id_error) AS errors
+				FROM {db_prefix}log_errors'
+			);
+			list($errors) = $smcFunc['db_fetch_row']($result);
+			$smcFunc['db_free_result']($result);
+		}
+		elseif ($ver >= 'SMF 1.1' && !empty($context['allow_admin']))
+		{
+			$request = db_query("
+				SELECT COUNT(ID_ERROR) AS errors
+				FROM {$db_prefix}log_errors", __FILE__, __LINE__);
+			list($errors) = mysql_fetch_row($request);
+			mysql_free_result($request);
+		}
+		$buffer = str_replace('<elux></elux>', empty($errors) ? '' : ' <strong>(' . $errors . ')</strong>', $buffer);
 	}
-	elseif ($ver >= 'SMF 1.1' && !empty($context['allow_admin']))
-	{
-		$request = db_query("
-			SELECT COUNT(ID_ERROR) AS errors
-			FROM {$db_prefix}log_errors", __FILE__, __LINE__);
-		list($errors) = mysql_fetch_row($request);
-		mysql_free_result($request);
-	}
-	return str_replace('<elux></elux>', empty($errors) ? '' : ' <strong>(' . $errors . ')</strong>', $buffer);
+	return $buffer;
 }
 
 ?>
