@@ -1,3 +1,6 @@
+v1.3 - December 10th, 2016
+o Fixed admin check added in version 1.2.
+
 v1.2 - November 26th, 2016
 o Added admin check to circumvent white screen error found.
 

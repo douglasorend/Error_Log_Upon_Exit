@@ -28,7 +28,7 @@ function ELUX_Buffer($buffer)
 	global $context, $smcFunc, $forum_version, $db_prefix, $user_info;
 	
 	// If we aren't admin, return the buffer the way it is:
-	if (!empty($user_info['admin']))
+	if (!empty($user_info['is_admin']))
 	{
 		// If we are admin, then show the number of errors in the log:
 		$ver = substr($forum_version, 0, 7);
